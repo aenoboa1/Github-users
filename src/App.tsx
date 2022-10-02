@@ -1,21 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import Navbar from "./components/Navbar";
-import {BrowserRouter as Router,Routes , Route } from "react-router-dom";
-import Header from './components/Header'
+import Dashboard from "./pages/dashboard";
+import Login from "./pages/Login";
+import Error from "./pages/Error";
+
+
+import {
+    BrowserRouter,
+    Routes,
+    Route,
+    Link,
+} from "react-router-dom";
+import Info from "./pages/Info";
 
 function App() {
-  return (
-      <Router>
-          <Route path = '/' exact={true}>
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path='/' element={<Dashboard/>}>
+                </Route>
+                <Route path='/login' element={<Login/>}>
+                </Route>
+                <Route path='*' element={<Error/>}>
+                </Route>
 
-
-
-          </Route>
-      </Router>
-
-  );
+                <Route path='/info' element={<Info/>}>
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    );
 }
 
 
